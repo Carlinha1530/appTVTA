@@ -1,17 +1,37 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Contatos
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+    <ion-card>
+        <img src="assets/img/map.png">
+        <ion-fab right top>
+            <button ion-fab>
+                <ion-icon name="pin"></ion-icon>
+            </button>
+        </ion-fab>
+
+        <ion-item>
+            <ion-icon name="map" item-start large></ion-icon>
+            <h2> 874 S McDonald</h2>
+            <p>Rd. SW McDonald McDonald, </p>
+            <p>TN 37353</p>
+        </ion-item>
+        <ion-item>
+                <ion-icon name="home" item-start></ion-icon>
+                +1 (423) 473-1841
+            </ion-item>
+            <ion-item>
+                <ion-icon name="call" item-start></ion-icon>
+                +55 (19) 99870-4871
+            </ion-item>
+            <ion-item>
+                <ion-icon name="mail" item-start></ion-icon>
+                contato@terceiroanjo.com
+            </ion-item>
+    </ion-card>
 </ion-content>

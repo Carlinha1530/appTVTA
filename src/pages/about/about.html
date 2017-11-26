@@ -1,11 +1,30 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Informações
+            <!-- About -->
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <div class="img_logo">
+        <img src="assets/img/terceiroanjo.com.png" />
+    </div>
+    <div class="list_buttons">
+        <a href="http://terceiroanjo.com/nossa_historia" ion-button color="withe" full>Sobre nós</a>
+        <a (click)="openPageContactPage()" ion-button color="withe" full>Contato</a>
+        <!--a href="http://terceiroanjo.com/videos" ion-button color="withe" full>Site/Vídeos</a-->
+        <a (click)="openPageVideoPage()" ion-button color="withe" full>Site/Vídeos</a>
+        <a href="http://terceiroanjo.com/galerias_all" ion-button color="withe" full>Fotos</a>
+        <a (click)="openPageNewsletterPage()" ion-button color="withe" full>Novidades por e-mail</a>
+    </div>
+    
+    <div class="sociais">
+        <a href="https://www.facebook.com/terceiroanjobrasil/"><img src="assets/img/facebook1.png" /></a>
+        <a href="https://twitter.com/terceiro_anjo"><img src="assets/img/twitter1.png" /></a>
+        <a href="https://www.youtube.com/user/TerceiroAnjoBrasil/"><img src="assets/img/youtube1.png" /></a>
+        <a href="https://vimeo.com/tvterceiroanjo/"><img src="assets/img/vimeo1.png" /></a>
+    </div>
 
 </ion-content>
