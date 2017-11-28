@@ -1,11 +1,7 @@
-import { RadioPage } from '../radio/radio';
-import { TvPage } from '../tv/tv';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-// import { StreamingVideoOptions } from '@ionic-native/streaming-media';
-// import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions  } from '@ionic-native/streaming-media';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
-// import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 
 @Component({
@@ -13,32 +9,25 @@ import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-m
   templateUrl: 'home.html'
 })
 export class HomePage {
-  // [x: string]: any;
 
-  constructor(public navCtrl: NavController,private streamingMedia: StreamingMedia) { }
+  constructor(private navParams: NavParams, private youtube: YoutubeVideoPlayer, private plt: Platform, private streamingMedia: StreamingMedia) { }
 
-  openPageTv(){
-    this.navCtrl.push(TvPage);
+  openVideoYouTube(video) {
+    if (this.plt.is('cordova')) {
+      this.youtube.openVideo('WgO0gwuJWFU');
+    } else {
+      window.open('https://www.youtube.com/watch?v=' + 'WgO0gwuJWFU');
+    }
   }
 
-  openPageRadio(){
-    this.navCtrl.push(RadioPage);
-  }
-
-  // openVideo(){
-  //   this.youtube.openVideo('M7lc1UVf-VE');
-  // }
-  
-  startVideo() {
-    let options: StreamingVideoOptions = {
-      successCallback: () => { console.log('Finished Video') },
-      errorCallback: (e) => { console.log('Error: ', e) },
-      orientation: 'portrait'
+  playAudio() {
+    let options: StreamingAudioOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      initFullscreen: false
     };
- 
-    // http://www.sample-videos.com/
-    // this.streamingMedia.playVideo('https://youtu.be/xJYyf0Z9N80', options);
-    this.streamingMedia.playVideo('http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_30mb.mp4', options);
+    
+    this.streamingMedia.playAudio('streamer1.streamhost.org/salive/GMI3anjoa', options);
   }
 
 }

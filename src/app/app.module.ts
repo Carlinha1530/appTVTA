@@ -19,6 +19,7 @@ import { RadioPageModule } from "../pages/radio/radio.module";
 import { VideoServiceProvider } from '../providers/video-service/video-service';
 import { VideoPageModule } from '../pages/video/video.module';
 import { StreamingMedia } from '@ionic-native/streaming-media';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VideoServiceProvider,
-    StreamingMedia
+    StreamingMedia,
+    YoutubeVideoPlayer
   ]
 })
 export class AppModule {}
