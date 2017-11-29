@@ -26,23 +26,18 @@ export class RadioPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RadioPage');
   }
- 
+
   startAudio() {
     let options: StreamingAudioOptions = {
-      successCallback: () => { console.log('Finished Audio') },
-      errorCallback: (e) => { console.log('Error: ', e) },
-      initFullscreen: false // iOS only!
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { alert(e) },
+      initFullscreen: false
     };
- 
-    //http://soundbible.com/2196-Baby-Music-Box.html
-    this.streamingMedia.playAudio('http://soundbible.com/grab.php?id=2196&type=mp3', options);
-    // this.streamingMedia.playAudio('rtmp://streamer1.streamhost.org/salive/GMI3anjoa', options);
+    
+    this.streamingMedia.playAudio('http://streamer1.streamhost.org:1935/salive/GMI3anjoa/playlist.m3u8', options);
   }
  
   stopAudio() {
     this.streamingMedia.stopAudio();
   }
-
-  
-
 }
