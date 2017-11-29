@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
+import { RadioPage } from '../radio/radio';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,11 @@ import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-m
 })
 export class HomePage {
 
-  constructor(private navParams: NavParams, private youtube: YoutubeVideoPlayer, private plt: Platform, private streamingMedia: StreamingMedia) { }
+  constructor(public navCtrl: NavController, private navParams: NavParams, private youtube: YoutubeVideoPlayer, private plt: Platform, private streamingMedia: StreamingMedia) { }
+
+  openPageRadio(){
+    this.navCtrl.push(RadioPage);
+  }
 
   openVideoYouTube(video) {
     if (this.plt.is('cordova')) {
@@ -18,16 +23,6 @@ export class HomePage {
     } else {
       window.open('https://www.youtube.com/watch?v=' + 'WgO0gwuJWFU');
     }
-  }
-
-  playAudio() {
-    let options: StreamingAudioOptions = {
-      successCallback: () => { console.log('Video played') },
-      errorCallback: (e) => { console.log('Error streaming') },
-      initFullscreen: false
-    };
-    
-    this.streamingMedia.playAudio('streamer1.streamhost.org/salive/GMI3anjoa', options);
   }
 
 }
